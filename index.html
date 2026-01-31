@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Pihu 🎂</title>
+
+<style>
+body{
+margin:0;
+background:#ffe4f2;
+font-family:Verdana;
+text-align:center;
+overflow-x:hidden;
+}
+
+section{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:25px
+}
+
+img{max-width:260px;border-radius:20px}
+
+button{
+padding:15px 35px;
+background:#ff4f9a;
+border:none;
+border-radius:30px;
+color:white;
+font-size:18px
+}
+
+.hidden{display:none}
+
+.catbg{
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:url("https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif");
+opacity:.25;z-index:-1
+}
+
+.heart,.petal{
+position:fixed;
+font-size:22px;
+animation:float 7s linear infinite
+}
+
+@keyframes float{
+0%{top:100%}
+100%{top:-10%}
+}
+</style>
+</head>
+
+<body>
+
+<div class="catbg"></div>
+
+<section id="cake">
+<h1>Tap the Cake Pihu 🎂</h1>
+
+<img src="https://i.imgur.com/7yUvePI.png">
+
+<br><br>
+<button onclick="start()">Cut Cake 💕</button>
+</section>
+
+<section id="letter" class="hidden">
+<h2>Dear Pihu 💖</h2>
+
+<p>You are one of the most beautiful souls I’ve ever known.</p>
+<p>Your smile brings peace.</p>
+<p>Your kindness heals hearts.</p>
+<p>You make ordinary moments magical.</p>
+<p>Your presence feels like home.</p>
+<p>You’re strong even when you don’t realize it.</p>
+<p>You deserve endless happiness.</p>
+<p>You make this world softer.</p>
+<p>I’m grateful for you.</p>
+<p>You are rare.</p>
+<p>You are precious.</p>
+<p>You are special.</p>
+<p>You matter.</p>
+<p>Never forget that.</p>
+<p>Happy Birthday Pihu 🎂</p>
+
+<button onclick="showPics()">Next ✨</button>
+</section>
+
+<section id="pics" class="hidden">
+<img id="slide">
+<button onclick="why()">Continue 💗</button>
+</section>
+
+<section id="why" class="hidden">
+<h2>Why You're Special 🌸</h2>
+
+<p>• Your heart</p>
+<p>• Your laugh</p>
+<p>• Your chaos</p>
+<p>• Your care</p>
+<p>• Your smile</p>
+
+<img src="images/suhan.jpg">
+<p>— Always from Suhan 💖</p>
+
+<button onclick="final()">Final Surprise 🎉</button>
+</section>
+
+<section id="final" class="hidden">
+<h1>🎉 HAPPY BIRTHDAY PIHU 🎂</h1>
+<h2>You’ll always have a special place in my heart.</h2>
+<h3>— Suhan Chakravarti 💗</h3>
+</section>
+
+<audio id="music" loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_6f3c87f3f4.mp3">
+</audio>
+
+<script>
+
+let photos=[
+"images/pihu1.jpg",
+"images/pihu2.jpg",
+"images/pihu3.jpg",
+"images/pihu4.jpg",
+"images/pihu5.jpg",
+"images/pihu6.jpg"
+];
+
+let i=0;
+
+function start(){
+cake.style.display="none";
+letter.classList.remove("hidden");
+music.play();
+effects();
+}
+
+function showPics(){
+letter.style.display="none";
+pics.classList.remove("hidden");
+slide.src=photos[0];
+setInterval(()=>{
+i=(i+1)%photos.length;
+slide.src=photos[i];
+},2000);
+}
+
+function why(){
+pics.style.display="none";
+why.classList.remove("hidden");
+}
+
+function final(){
+why.style.display="none";
+final.classList.remove("hidden");
+}
+
+function effects(){
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="💗";
+h.style.left=Math.random()*100+"%";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),7000);
+
+let p=document.createElement("div");
+p.className="petal";
+p.innerHTML="🌸";
+p.style.left=Math.random()*100+"%";
+document.body.appendChild(p);
+setTimeout(()=>p.remove(),7000);
+},400);
+}
+
+</script>
+
+</body>
+</html>
